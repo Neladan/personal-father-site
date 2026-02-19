@@ -2,11 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/biographie", label: "Biographie" },
-  { href: "/enseignements", label: "Enseignements" },
+  { href: "/enseignements", label: "Blog" },
   { href: "/conferences", label: "Conférences" },
   { href: "/contact", label: "Contact" },
 ];
@@ -14,6 +15,10 @@ const navLinks = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +48,10 @@ export default function Header() {
             <ul className="nav-list">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="nav-link">
+                  <Link
+                    href={link.href}
+                    className={`nav-link${isActive(link.href) ? " nav-link-active" : ""}`}
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -87,7 +95,7 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="mobile-nav-link"
+                className={`mobile-nav-link${isActive(link.href) ? " mobile-nav-link-active" : ""}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}

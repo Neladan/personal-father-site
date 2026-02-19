@@ -4,7 +4,7 @@ const footerLinks = {
   navigation: [
     { href: "/", label: "Accueil" },
     { href: "/biographie", label: "Biographie" },
-    { href: "/enseignements", label: "Enseignements" },
+    { href: "/enseignements", label: "Blog" },
     { href: "/conferences", label: "Conférences" },
   ],
   ressources: [
