@@ -13,85 +13,81 @@ export type BookItem = {
 };
 
 export const biographyIntro = {
-  eyebrow: "Pasteur · Auteur · Conférencier",
+  eyebrow: "Pasteur · Auteur · Entrepreneur",
   title: "Teddy Ngbanda",
   quote:
-    "Ma vie entière est une réponse à un seul appel : élever des hommes et des nations vers leur destinée en Dieu.",
+    "Passionné de Dieu et missionnaire dans l'âme, une vie dédiée à la restauration des familles et l'inspiration de la jeunesse.",
   paragraphs: [
-    "Né au cœur de l'Afrique, Teddy Ngbanda a traversé des épreuves qui auraient pu briser un homme ordinaire. C'est précisément dans ces moments que s'est forgée une vision : celle d'une Afrique réconciliée avec sa propre grandeur, à travers des hommes et des femmes transformés par la Parole de Dieu.",
-    "Pasteur depuis plus de vingt ans, auteur de plusieurs ouvrages de référence, Teddy parcourt le monde pour porter un message qui touche aussi bien la sphère spirituelle que les enjeux de leadership, de famille et de transformation sociale.",
-    "Son approche unique — ancrant les principes bibliques dans des réalités contemporaines — lui a valu une audience internationale et la confiance de leaders politiques, économiques et religieux sur trois continents.",
+    "Teddy Ngbanda est le pasteur principal d'Impact Centre Chrétien (ICC) Cotonou au Bénin depuis 2012. Animé par un profond désir de voir le Royaume de Dieu s'étendre, il œuvre activement au Bénin, en Afrique de l'Ouest et dans le monde entier.",
+    "Avant de s'établir au Bénin sous l'impulsion du Pasteur Yvan Castanou, il a servi avec dévouement pendant plus de cinq ans au sein du ministère des jeunes d'ICC en France. Diplômé de l'École Supérieure de Publicité (ESP) de Paris, Teddy Ngbanda se distingue également en tant qu'entrepreneur et musicien.",
+    "Auteur prolixe, il a rédigé plusieurs ouvrages percutants sur la destinée et la famille. Il partage sa vie et son ministère avec son épouse Nadine, pasteur assistante, avec qui il a la joie d'élever leurs trois enfants.",
   ],
 };
 
 export const timeline: TimelineItem[] = [
   {
-    year: "1975",
-    title: "Naissance à Kinshasa",
+    year: "Formation",
+    title: "Études à l'ESP Paris",
     description:
-      "Né dans une famille chrétienne de Kinshasa (RDC), Teddy grandit nourri de la Parole de Dieu et des valeurs d'excellence inculquées par ses parents.",
+      "Teddy Ngbanda obtient son diplôme à l'École Supérieure de Publicité (ESP) de Paris, forgeant ainsi de solides compétences en communication et entrepreneuriat.",
   },
   {
-    year: "1993",
-    title: "Conversion et appel",
+    year: "Débuts",
+    title: "Ministère des Jeunes ICC",
     description:
-      "À l'âge de 18 ans, une rencontre personnelle et transformatrice avec Dieu marque le tournant de sa vie. Il reçoit un appel clair au ministère pastoral et à l'enseignement.",
+      "Il sert pendant plus de cinq ans au sein du ministère des jeunes d'Impact Centre Chrétien (ICC) en France, inspirant et accompagnant une génération vers son potentiel divin.",
   },
   {
-    year: "1998",
-    title: "Ordination pastorale",
+    year: "2012",
+    title: "Installation au Bénin",
     description:
-      "Après plusieurs années de formation théologique et de service dans diverses communautés, Teddy est ordonné pasteur. Il fonde sa première communauté à Kinshasa.",
+      "Établi par le Pasteur Yvan Castanou, il prend la direction spirituelle d'ICC Cotonou, devenant le pasteur principal des églises ICC au Bénin.",
   },
   {
-    year: "2003",
-    title: "Premier ouvrage publié",
+    year: "Écriture",
+    title: "Impact par la littérature",
     description:
-      "Publication de son premier livre, rapidement adopté comme référence dans les cercles de leadership chrétien en Afrique francophone.",
-  },
-  {
-    year: "2008",
-    title: "Rayonnement international",
-    description:
-      "Sa réputation d'orateur et d'enseignant dépasse les frontières africaines. Il commence à intervenir lors de conférences internationales en Europe, en Amérique du Nord et en Asie.",
-  },
-  {
-    year: "2015",
-    title: "Fondation de l'Institut",
-    description:
-      "Création d'un institut de formation au leadership chrétien, qui a depuis formé des centaines de leaders à travers le continent africain.",
+      "Publication de plusieurs ouvrages majeurs, dont la série « S.T.O.P. Ma vie doit compter », préfacée par le Pasteur Yvan Castanou, devenant des ressources pour la francophonie.",
   },
   {
     year: "Aujourd'hui",
-    title: "Une voix pour les nations",
+    title: "Un ministère holistique",
     description:
-      "Teddy Ngbanda continue de voyager, d'enseigner et d'écrire, portant une vision inchangée : élever des leaders intègres pour transformer les nations depuis leurs fondements.",
+      "En tant que pasteur, auteur, entrepreneur et musicien, Teddy Ngbanda continue d'étendre son influence, œuvrant sans relâche pour la restauration des familles.",
   },
 ];
 
 export const books: BookItem[] = [
   {
-    slug: "leadership-au-coeur-de-dieu",
-    title: "Le Leadership au cœur de Dieu",
-    subtitle: "Principes bibliques pour diriger avec excellence",
-    year: 2003,
+    slug: "stop-ma-vie-doit-compter",
+    title: "S.T.O.P. Ma vie doit compter",
+    subtitle: "Découvrir et accomplir sa destinée (Vol. I & II)",
+    year: 2020,
     description:
-      "Un ouvrage fondateur qui remet les fondements du leadership dans leur contexte originel — la Parole de Dieu. Traduit en plusieurs langues, il reste une référence incontournable.",
+      "Un ouvrage puissant, préfacé par le pasteur Yvan Castanou, qui offre des clés spirituelles et pratiques pour refuser le statu quo et s'engager pleinement sur le chemin de sa destinée.",
   },
   {
-    slug: "famille-premiere-nation",
-    title: "La Famille, première nation",
-    subtitle: "Reconstruire la société par le foyer",
-    year: 2009,
+    slug: "la-voix-que-tu-entends",
+    title: "La voix que tu entends, tracera ta voie",
+    subtitle: "L'importance de l'écoute spirituelle",
+    year: 2021,
     description:
-      "Une analyse approfondie du rôle de la famille dans la reconstruction des nations africaines, avec des applications pratiques pour les couples et les parents.",
+      "Un livre révélateur sur l'impact de ce que nous écoutons. Teddy Ngbanda y enseigne comment discerner la voix de Dieu au milieu des bruits du monde pour être conduit vers les bons choix.",
   },
   {
-    slug: "guerison-des-nations",
-    title: "La Guérison des nations",
-    subtitle: "Une vision prophétique pour l'Afrique du XXIe siècle",
-    year: 2017,
+    slug: "aimez-la-respectez-le",
+    title: "Aimez-la... Respectez-le",
+    subtitle: "Renforcer les liens du mariage",
+    year: 2022,
     description:
-      "Son œuvre la plus ambitieuse : un regard prophétique sur le destin de l'Afrique et la responsabilité des croyants dans la transformation de leur continent.",
+      "Un guide fondé sur des principes bibliques pour la restauration et la solidité des couples. Une ressource essentielle pour bâtir une relation conjugale épanouie et durable.",
+  },
+  {
+    slug: "ils-sont-partis",
+    title: "Ils sont partis",
+    subtitle: "Surmonter l'abandon et le rejet",
+    year: 2023,
+    description:
+      "Face aux blessures du départ et de la séparation, ce livre apporte guérison et réconfort, rappelant que l'absence de certains ne bloque pas le plan merveilleux de Dieu pour nos vies.",
   },
 ];

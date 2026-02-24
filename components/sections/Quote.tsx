@@ -8,7 +8,7 @@ interface QuoteProps {
 }
 
 export default function Quote({
-  text = "La vraie transformation commence là où la foi rencontre l'action. Chaque leader est appelé à être un pont entre le ciel et la terre.",
+  text = "Ta destinée n'est pas une option, c'est une responsabilité. Elle se bâtit sur des choix conscients, à l'écoute de la voix de Dieu et ancrée dans de solides valeurs familiales.",
   author = "Teddy NGBANDA",
 }: Partial<QuoteProps>) {
   return (

@@ -1,4 +1,7 @@
-export type ArticleCategory = "Spiritualité" | "Leadership" | "Société";
+export type ArticleCategory =
+  | "Spiritualité"
+  | "Famille & Couple"
+  | "Jeunesse & Destinée";
 
 export type Article = {
   slug: string;

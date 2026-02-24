@@ -10,16 +10,16 @@ export default function Hero() {
         <div className="hero-grid">
           <div className="hero-content animate-fade-in-up">
             <span className="hero-eyebrow">
-              Pasteur • Auteur • Conférencier
+              Pasteur • Auteur • Entrepreneur
             </span>
             <h1 className="hero-title">
-              Inspirer les cœurs,
+              Restaurer les familles,
               <br />
-              transformer les nations
+              inspirer la jeunesse
             </h1>
             <p className="hero-subtitle">
-              Une voix prophétique pour cette génération. Accompagnant les
-              leaders, les familles et les communautés vers leur plein potentiel
+              Pasteur principal d'ICC Cotonou. Accompagnant les couples, les
+              jeunes et les familles vers leur destinée et leur plein potentiel
               en Christ.
             </p>
             <div className="hero-cta">

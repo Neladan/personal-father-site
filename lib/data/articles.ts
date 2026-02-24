@@ -40,8 +40,8 @@ export const articles: Article[] = [
   },
   {
     slug: "leadership-serviteur",
-    category: "Leadership",
-    title: "Le leadership serviteur : une révolution silencieuse",
+    category: "Jeunesse & Destinée",
+    title: "S.T.O.P. Ma vie doit compter : Refuser le statu quo",
     excerpt:
       "Comment les principes du leadership serviteur peuvent transformer nos organisations et communautés.",
     content: `
@@ -77,7 +77,7 @@ export const articles: Article[] = [
   },
   {
     slug: "famille-pilier-nation",
-    category: "Société",
+    category: "Famille & Couple",
     title: "La famille, pilier de la nation",
     excerpt:
       "Réflexions sur le rôle fondamental de la famille dans la construction d'une société saine.",
@@ -139,7 +139,7 @@ export const articles: Article[] = [
   },
   {
     slug: "vision-et-mission-de-vie",
-    category: "Leadership",
+    category: "Jeunesse & Destinée",
     title: "Clarifier sa vision et sa mission de vie",
     excerpt:
       "Sans vision claire, les jours s'écoulent sans direction. Voici comment identifier et articuler votre mission personnelle.",
@@ -170,8 +170,8 @@ export const articles: Article[] = [
 
 export const categoryColors: Record<string, string> = {
   Spiritualité: "var(--color-accent)",
-  Leadership: "var(--color-primary)",
-  Société: "#2E7D32",
+  "Famille & Couple": "var(--color-primary)",
+  "Jeunesse & Destinée": "#2E7D32",
 };
 
 export function getArticleBySlug(slug: string): Article | undefined {
@@ -181,10 +181,12 @@ export function getArticleBySlug(slug: string): Article | undefined {
 export function getRelatedArticles(
   currentSlug: string,
   category: string,
-  limit = 3
+  limit = 3,
 ): Article[] {
   return articles
     .filter((a) => a.slug !== currentSlug && a.category === category)
-    .concat(articles.filter((a) => a.slug !== currentSlug && a.category !== category))
+    .concat(
+      articles.filter((a) => a.slug !== currentSlug && a.category !== category),
+    )
     .slice(0, limit);
 }

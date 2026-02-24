@@ -9,8 +9,8 @@ const footerLinks = {
   ],
   ressources: [
     { href: "/enseignements?cat=spiritualite", label: "Spiritualité" },
-    { href: "/enseignements?cat=leadership", label: "Leadership" },
-    { href: "/enseignements?cat=societe", label: "Société" },
+    { href: "/enseignements?cat=famille", label: "Famille & Couple" },
+    { href: "/enseignements?cat=jeunesse", label: "Jeunesse & Destinée" },
   ],
   contact: [
     { href: "/contact", label: "Nous contacter" },
@@ -30,8 +30,9 @@ export default function Footer() {
           <div>
             <div className="footer-brand">Teddy NGBANDA</div>
             <p className="footer-tagline">
-              Pasteur, Auteur et Conférencier international. Inspirer, former et
-              accompagner les leaders de demain.
+              Pasteur principal d'ICC Cotonou, Auteur et Entrepreneur. Restaurer
+              les familles, inspirer la jeunesse et guider vers la destinée en
+              Christ.
             </p>
           </div>
 

@@ -40,9 +40,9 @@ const expertiseItems = [
         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
-    title: "Leadership",
+    title: "Famille & Couple",
     description:
-      "Formation des leaders serviteurs qui impactent leur génération avec intégrité et vision.",
+      "Des conseils bibliques pour restaurer, bâtir et consolider les fondations du mariage et de la famille.",
   },
   {
     icon: (
@@ -61,9 +61,9 @@ const expertiseItems = [
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
       </svg>
     ),
-    title: "Société",
+    title: "Jeunesse & Destinée",
     description:
-      "Réflexions sur les enjeux contemporains à la lumière des valeurs éternelles pour transformer nos communautés.",
+      "Inspirer et équiper la nouvelle génération pour accomplir pleinement son potentiel et sa vocation en Christ.",
   },
 ];
 

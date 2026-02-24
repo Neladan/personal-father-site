@@ -10,9 +10,9 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Teddy NGBANDA",
-  jobTitle: ["Pasteur", "Auteur", "Conférencier"],
+  jobTitle: ["Pasteur", "Auteur", "Entrepreneur"],
   description:
-    "Pasteur, Auteur et Conférencier international accompagnant les leaders vers leur plein potentiel.",
+    "Pasteur principal d'ICC Cotonou, Auteur et Entrepreneur dédié à la restauration des familles et l'inspiration de la jeunesse.",
   url: "https://teddy-ngbanda.com",
   sameAs: [
     "https://youtube.com/@teddy-ngbanda",
@@ -20,15 +20,10 @@ const jsonLd = {
     "https://twitter.com/teddy_ngbanda",
     "https://linkedin.com/in/teddy-ngbanda",
   ],
-  knowsAbout: [
-    "Spiritualité",
-    "Leadership",
-    "Développement personnel",
-    "Famille",
-  ],
+  knowsAbout: ["Spiritualité", "Famille", "Couple", "Jeunesse", "Destinée"],
   worksFor: {
     "@type": "Organization",
-    name: "Ministère Teddy NGBANDA",
+    name: "Impact Centre Chrétien (ICC) Cotonou",
   },
 };
 
