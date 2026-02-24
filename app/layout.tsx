@@ -13,20 +13,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://teddy-ngbanda.com"),
   title: {
-    default: "Teddy NGBANDA | Pasteur, Auteur & Conférencier",
+    default: "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur",
     template: "%s | Teddy NGBANDA",
   },
   description:
-    "Pasteur, Auteur et Conférencier international. Accompagnant les leaders, les familles et les communautés vers leur plein potentiel en Christ.",
+    "Pasteur principal d'ICC Cotonou, Auteur et Entrepreneur. Restaurer les familles, inspirer la jeunesse et guider vers la destinée en Christ.",
   keywords: [
     "pasteur",
     "auteur chrétien",
-    "conférencier",
-    "leadership",
-    "spiritualité",
-    "Afrique",
-    "diaspora",
-    "enseignements bibliques",
+    "entrepreneur",
+    "foi",
+    "famille",
+    "jeunesse",
+    "destinée",
+    "ICC Cotonou",
   ],
   authors: [{ name: "Teddy NGBANDA" }],
   creator: "Teddy NGBANDA",
@@ -35,23 +35,23 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "https://teddy-ngbanda.com",
     siteName: "Teddy NGBANDA",
-    title: "Teddy NGBANDA | Pasteur, Auteur & Conférencier",
+    title: "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur",
     description:
-      "Inspirer les cœurs, transformer les nations. Une voix prophétique pour cette génération.",
+      "Restaurer les familles, inspirer la jeunesse. Une voix dédiée à votre destinée en Christ.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Teddy NGBANDA - Pasteur, Auteur & Conférencier",
+        alt: "Teddy NGBANDA - Pasteur, Auteur & Entrepreneur",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Teddy NGBANDA | Pasteur, Auteur & Conférencier",
+    title: "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur",
     description:
-      "Inspirer les cœurs, transformer les nations. Une voix prophétique pour cette génération.",
+      "Restaurer les familles, inspirer la jeunesse. Une voix dédiée à votre destinée en Christ.",
     images: ["/og-image.jpg"],
   },
   robots: {

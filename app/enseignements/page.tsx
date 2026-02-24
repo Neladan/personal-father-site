@@ -44,9 +44,8 @@ function EnseignementsContent() {
             </span>
             <h1 className="page-title">Publications &amp; Articles</h1>
             <p className="page-subtitle">
-              Des enseignements ancrés dans la Parole de Dieu pour nourrir
-              votre foi, développer votre leadership et transformer votre
-              quotidien.
+              Des enseignements ancrés dans la Parole de Dieu pour nourrir votre
+              foi, fortifier vos relations et transformer votre quotidien.
             </p>
           </RevealOnScroll>
         </div>

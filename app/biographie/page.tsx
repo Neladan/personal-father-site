@@ -10,11 +10,11 @@ import Newsletter from "@/components/sections/Newsletter";
 export const metadata: Metadata = {
   title: "Biographie — Teddy Ngbanda",
   description:
-    "Découvrez le parcours de Teddy Ngbanda, pasteur, auteur et conférencier international. Une vie au service de l'élévation des hommes et des nations.",
+    "Découvrez le parcours de Teddy Ngbanda, pasteur, auteur et entrepreneur. Une vie dédiée à la restauration des familles et l'inspiration de la jeunesse.",
   openGraph: {
     title: "Biographie — Teddy Ngbanda",
     description:
-      "Pasteur, auteur et conférencier international — découvrez son parcours de vie et de foi.",
+      "Pasteur principal d'ICC Cotonou, auteur et entrepreneur — découvrez son parcours de vie et de foi.",
   },
 };
 
