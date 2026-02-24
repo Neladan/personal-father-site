@@ -8,8 +8,8 @@ const navLinks = [
   { href: "/", label: "Accueil" },
   { href: "/biographie", label: "Biographie" },
   { href: "/enseignements", label: "Blog" },
-  { href: "/conferences", label: "Conférences" },
-  { href: "/contact", label: "Contact" },
+  // { href: "/conferences", label: "Conférences" },
+  // { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {

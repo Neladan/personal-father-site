@@ -20,7 +20,7 @@ const jsonLd = {
     "https://twitter.com/teddy_ngbanda",
     "https://linkedin.com/in/teddy-ngbanda",
   ],
-  knowsAbout: ["Spiritualité", "Famille", "Couple", "Jeunesse", "Destinée"],
+  knowsAbout: ["Foi", "Famille", "Couple", "Jeunesse", "Destinée"],
   worksFor: {
     "@type": "Organization",
     name: "Impact Centre Chrétien (ICC) Cotonou",
@@ -39,7 +39,7 @@ export default function Home() {
       <Quote />
       <ExpertiseGrid />
       <ArticlesPreview />
-      <UpcomingEvent />
+      {/* <UpcomingEvent /> */}
       <Newsletter />
     </>
   );

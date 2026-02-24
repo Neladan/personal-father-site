@@ -10,9 +10,9 @@ type Props = {
 
 const categories: Array<ArticleCategory | "Tous"> = [
   "Tous",
-  "Spiritualité",
-  "Leadership",
-  "Société",
+  "Foi",
+  "Famille & Couple",
+  "Jeunesse & Destinée",
 ];
 
 export default function ArticleFilters({ active, onChange }: Props) {
@@ -21,7 +21,9 @@ export default function ArticleFilters({ active, onChange }: Props) {
       {categories.map((cat) => {
         const isActive = active === cat;
         const color =
-          cat === "Tous" ? "var(--color-primary)" : (categoryColors[cat] ?? "var(--color-primary)");
+          cat === "Tous"
+            ? "var(--color-primary)"
+            : (categoryColors[cat] ?? "var(--color-primary)");
 
         return (
           <button

@@ -5,15 +5,15 @@ const footerLinks = {
     { href: "/", label: "Accueil" },
     { href: "/biographie", label: "Biographie" },
     { href: "/enseignements", label: "Blog" },
-    { href: "/conferences", label: "Conférences" },
+    // { href: "/conferences", label: "Conférences" },
   ],
   ressources: [
-    { href: "/enseignements?cat=spiritualite", label: "Spiritualité" },
+    { href: "/enseignements?cat=foi", label: "Foi" },
     { href: "/enseignements?cat=famille", label: "Famille & Couple" },
     { href: "/enseignements?cat=jeunesse", label: "Jeunesse & Destinée" },
   ],
   contact: [
-    { href: "/contact", label: "Nous contacter" },
+    // { href: "/contact", label: "Nous contacter" },
     { href: "/mentions-legales", label: "Mentions légales" },
     { href: "/politique-confidentialite", label: "Confidentialité" },
   ],

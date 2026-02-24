@@ -1,5 +1,5 @@
 export type ArticleCategory =
-  | "Spiritualité"
+  | "Foi"
   | "Famille & Couple"
   | "Jeunesse & Destinée";
 

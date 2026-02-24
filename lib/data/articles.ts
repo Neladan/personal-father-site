@@ -3,7 +3,7 @@ import type { Article } from "@/lib/types/article";
 export const articles: Article[] = [
   {
     slug: "la-puissance-de-la-priere",
-    category: "Spiritualité",
+    category: "Foi",
     title: "La puissance de la prière dans les moments difficiles",
     excerpt:
       "Découvrez comment la prière peut transformer les épreuves en opportunités de croissance spirituelle.",
@@ -109,8 +109,8 @@ export const articles: Article[] = [
     image: null,
   },
   {
-    slug: "guerir-les-blessures-intérieures",
-    category: "Spiritualité",
+    slug: "guerir-les-blessures-interieures",
+    category: "Foi",
     title: "Guérir les blessures intérieures : un chemin de liberté",
     excerpt:
       "Chaque être humain porte des cicatrices invisibles. Comprendre le chemin de la guérison intérieure est essentiel pour marcher dans la liberté.",
@@ -169,7 +169,7 @@ export const articles: Article[] = [
 ];
 
 export const categoryColors: Record<string, string> = {
-  Spiritualité: "var(--color-accent)",
+  Foi: "var(--color-accent)",
   "Famille & Couple": "var(--color-primary)",
   "Jeunesse & Destinée": "#2E7D32",
 };
