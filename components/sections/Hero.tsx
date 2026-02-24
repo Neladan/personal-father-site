@@ -1,27 +1,32 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 
-export default function Hero() {
+type Props = {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+};
+
+export default function Hero({
+  eyebrow = "Pasteur • Auteur • Entrepreneur",
+  title = "Restaurer les familles,\ninspirer la jeunesse",
+  subtitle = "Pasteur principal d'ICC Cotonou. Accompagnant les couples, les jeunes et les familles vers leur destinée et leur plein potentiel en Christ.",
+}: Props) {
+  const [titleLine1, titleLine2] = title.split("\n");
+
   return (
     <section className="hero">
       <div className="container">
         <div className="hero-grid">
           <div className="hero-content animate-fade-in-up">
-            <span className="hero-eyebrow">
-              Pasteur • Auteur • Entrepreneur
-            </span>
+            <span className="hero-eyebrow">{eyebrow}</span>
             <h1 className="hero-title">
-              Restaurer les familles,
+              {titleLine1}
               <br />
-              inspirer la jeunesse
+              {titleLine2 ?? ""}
             </h1>
-            <p className="hero-subtitle">
-              Pasteur principal d'ICC Cotonou. Accompagnant les couples, les
-              jeunes et les familles vers leur destinée et leur plein potentiel
-              en Christ.
-            </p>
+            <p className="hero-subtitle">{subtitle}</p>
             <div className="hero-cta">
               <Link href="/enseignements" className="btn btn-primary btn-lg">
                 Découvrir les enseignements

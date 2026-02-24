@@ -1,39 +1,92 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { articles, getArticleBySlug, getRelatedArticles, categoryColors } from "@/lib/data/articles";
+import {
+  articles,
+  getArticleBySlug,
+  getRelatedArticles,
+  categoryColors,
+} from "@/lib/data/articles";
 import ArticleCard from "@/components/blog/ArticleCard";
+import PortableTextContent from "@/components/blog/PortableTextContent";
 import Newsletter from "@/components/sections/Newsletter";
+import { mapSanityPostToArticle } from "@/lib/sanity/mappers";
+import {
+  BLOG_REVALIDATE_SECONDS,
+  getAllPosts,
+  getNewsletterSection,
+  getPostBySlug,
+  getRelatedPosts,
+} from "@/lib/sanity/queries";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const revalidate = BLOG_REVALIDATE_SECONDS;
+
 export async function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  const cmsPosts = await getAllPosts();
+  const cmsSlugs = cmsPosts.map((post) => ({ slug: post.slug }));
+  const localSlugs = articles.map((article) => ({ slug: article.slug }));
+  const merged = new Map<string, { slug: string }>();
+
+  for (const entry of [...localSlugs, ...cmsSlugs]) {
+    merged.set(entry.slug, entry);
+  }
+
+  return Array.from(merged.values());
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
-  if (!article) return {};
+  const cmsPost = await getPostBySlug(slug);
+
+  if (cmsPost) {
+    return {
+      title: cmsPost.seo?.metaTitle ?? `${cmsPost.title} — Teddy Ngbanda`,
+      description: cmsPost.seo?.metaDescription ?? cmsPost.excerpt,
+      openGraph: {
+        title: cmsPost.seo?.metaTitle ?? cmsPost.title,
+        description: cmsPost.seo?.metaDescription ?? cmsPost.excerpt,
+      },
+      robots: {
+        index: !cmsPost.seo?.noIndex,
+        follow: true,
+      },
+    };
+  }
+
+  const localArticle = getArticleBySlug(slug);
+  if (!localArticle) return {};
 
   return {
-    title: `${article.title} — Teddy Ngbanda`,
-    description: article.excerpt,
+    title: `${localArticle.title} — Teddy Ngbanda`,
+    description: localArticle.excerpt,
     openGraph: {
-      title: article.title,
-      description: article.excerpt,
+      title: localArticle.title,
+      description: localArticle.excerpt,
     },
   };
 }
 
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
-  if (!article) notFound();
+  const cmsPost = await getPostBySlug(slug);
+  const localArticle = getArticleBySlug(slug);
 
-  const related = getRelatedArticles(article.slug, article.category);
+  if (!cmsPost && !localArticle) notFound();
+
+  const article = cmsPost ? mapSanityPostToArticle(cmsPost) : localArticle!;
+
+  const newsletterContent = await getNewsletterSection();
+
+  const relatedCmsPosts = cmsPost
+    ? await getRelatedPosts(cmsPost.slug, cmsPost.tags, 3)
+    : [];
+  const relatedCms = relatedCmsPosts.map(mapSanityPostToArticle);
+  const relatedLocal = getRelatedArticles(article.slug, article.category);
+  const related = relatedCms.length > 0 ? relatedCms : relatedLocal;
   const color = categoryColors[article.category] ?? "var(--color-primary)";
 
   const date = new Date(article.publishedAt).toLocaleDateString("fr-FR", {
@@ -70,10 +123,13 @@ export default async function ArticlePage({ params }: Props) {
       {/* Article Content */}
       <section className="section">
         <div className="container">
-          <div
-            className="prose"
-            dangerouslySetInnerHTML={{ __html: article.content }}
-          />
+          <div className="prose">
+            {cmsPost ? (
+              <PortableTextContent value={cmsPost.body} />
+            ) : (
+              <div dangerouslySetInnerHTML={{ __html: article.content }} />
+            )}
+          </div>
         </div>
       </section>
 
@@ -101,7 +157,7 @@ export default async function ArticlePage({ params }: Props) {
         </section>
       )}
 
-      <Newsletter />
+      <Newsletter content={newsletterContent ?? undefined} />
     </>
   );
 }

@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { getGlobalSeoSettings } from "@/lib/sanity/queries";
+import { urlForImage } from "@/lib/sanity/image";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,62 +12,72 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://teddy-ngbanda.com"),
-  title: {
-    default: "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur",
-    template: "%s | Teddy NGBANDA",
-  },
-  description:
-    "Pasteur principal d'ICC Cotonou, Auteur et Entrepreneur. Restaurer les familles, inspirer la jeunesse et guider vers la destinée en Christ.",
-  keywords: [
-    "pasteur",
-    "auteur chrétien",
-    "entrepreneur",
-    "foi",
-    "famille",
-    "jeunesse",
-    "destinée",
-    "ICC Cotonou",
-  ],
-  authors: [{ name: "Teddy NGBANDA" }],
-  creator: "Teddy NGBANDA",
-  openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    url: "https://teddy-ngbanda.com",
-    siteName: "Teddy NGBANDA",
-    title: "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur",
-    description:
-      "Restaurer les familles, inspirer la jeunesse. Une voix dédiée à votre destinée en Christ.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Teddy NGBANDA - Pasteur, Auteur & Entrepreneur",
-      },
+export async function generateMetadata(): Promise<Metadata> {
+  const globalSeo = await getGlobalSeoSettings();
+
+  const defaultTitle = globalSeo?.siteTitle ?? "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur";
+  const defaultDescription =
+    globalSeo?.siteDescription ??
+    "Pasteur principal d'ICC Cotonou, Auteur et Entrepreneur. Restaurer les familles, inspirer la jeunesse et guider vers la destinée en Christ.";
+  const siteUrl = globalSeo?.siteUrl ?? "https://teddy-ngbanda.com";
+  const ogImageUrl = globalSeo?.defaultOgImage
+    ? urlForImage(globalSeo.defaultOgImage).width(1200).height(630).url()
+    : "/og-image.jpg";
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: defaultTitle,
+      template: `%s | ${defaultTitle}`,
+    },
+    description: defaultDescription,
+    keywords: globalSeo?.keywords ?? [
+      "pasteur",
+      "auteur chrétien",
+      "entrepreneur",
+      "foi",
+      "famille",
+      "jeunesse",
+      "destinée",
+      "ICC Cotonou",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Teddy NGBANDA | Pasteur, Auteur & Entrepreneur",
-    description:
-      "Restaurer les familles, inspirer la jeunesse. Une voix dédiée à votre destinée en Christ.",
-    images: ["/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "Teddy NGBANDA" }],
+    creator: "Teddy NGBANDA",
+    openGraph: {
+      type: "website",
+      locale: "fr_FR",
+      url: siteUrl,
+      siteName: "Teddy NGBANDA",
+      title: defaultTitle,
+      description: defaultDescription,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Teddy NGBANDA - Pasteur, Auteur & Entrepreneur",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: defaultTitle,
+      description: defaultDescription,
+      images: [ogImageUrl],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-};
+  };
+}
 
 export default function RootLayout({
   children,

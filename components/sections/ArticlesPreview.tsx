@@ -1,11 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { articles } from "@/lib/data/articles";
 import ArticleCard from "@/components/blog/ArticleCard";
 import RevealOnScroll from "@/lib/RevealOnScroll";
+import type { Article } from "@/lib/types/article";
 
-export default function ArticlesPreview() {
+type Props = {
+  articles: Article[];
+};
+
+export default function ArticlesPreview({ articles }: Props) {
   const preview = articles.slice(0, 3);
 
   return (

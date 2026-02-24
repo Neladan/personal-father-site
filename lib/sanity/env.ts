@@ -1,0 +1,12 @@
+export const sanityEnv = {
+  NEXT_PUBLIC_SANITY_PROJECT_ID:
+    process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "",
+  NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET ?? "",
+  NEXT_PUBLIC_SANITY_API_VERSION:
+    process.env.NEXT_PUBLIC_SANITY_API_VERSION ?? "2026-02-24",
+  SANITY_API_READ_TOKEN: process.env.SANITY_API_READ_TOKEN,
+};
+
+export const isSanityConfigured = Boolean(
+  sanityEnv.NEXT_PUBLIC_SANITY_PROJECT_ID && sanityEnv.NEXT_PUBLIC_SANITY_DATASET,
+);

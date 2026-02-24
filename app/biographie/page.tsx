@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { biographyIntro, timeline, books } from "@/lib/data/biography";
 import BiographyHero from "@/components/sections/BiographyHero";
 import BiographyTimeline from "@/components/sections/BiographyTimeline";
 import BiographyValues from "@/components/sections/BiographyValues";
 import BiographyBooks from "@/components/sections/BiographyBooks";
 import Newsletter from "@/components/sections/Newsletter";
+import { BLOG_REVALIDATE_SECONDS, getAboutPageContent, getNewsletterSection } from "@/lib/sanity/queries";
 
 export const metadata: Metadata = {
   title: "Biographie — Teddy Ngbanda",
@@ -18,14 +18,30 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BiographiePage() {
+export const revalidate = BLOG_REVALIDATE_SECONDS;
+
+export default async function BiographiePage() {
+  const [aboutPageContent, newsletterContent] = await Promise.all([
+    getAboutPageContent(),
+    getNewsletterSection(),
+  ]);
+
+  const biographyHeroData = aboutPageContent
+    ? {
+        eyebrow: aboutPageContent.eyebrow,
+        title: aboutPageContent.title,
+        quote: aboutPageContent.quote,
+        paragraphs: aboutPageContent.paragraphs,
+      }
+    : biographyIntro;
+
   return (
     <>
-      <BiographyHero data={biographyIntro} />
+      <BiographyHero data={biographyHeroData} />
       <BiographyTimeline items={timeline} />
       <BiographyValues />
       <BiographyBooks books={books} />
-      <Newsletter />
+      <Newsletter content={newsletterContent ?? undefined} />
     </>
   );
 }
